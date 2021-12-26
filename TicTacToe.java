@@ -5,7 +5,7 @@ public class TicTacToe {
 
     static String[] gameBoard= {" "," "," "," "," "," "," "," "," "};
 
-    public static void main() {
+    public static void main(String[] args) {
         System.out.println("Welcome to Tic Tac Toe!!");
         dispgameBoard();
         int pos=0;
