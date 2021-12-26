@@ -1,7 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
 
-
 public class TicTacToe {
 
     static String[] gameBoard= {" "," "," "," "," "," "," "," "," "};
@@ -186,82 +185,48 @@ public class TicTacToe {
     }
 
     private static int checkWinner(){
-         int winner=99;
-        //Horizontal Wins
-        if(gameBoard[0] == "X"&& gameBoard[1] == "X" && gameBoard [2] == "X" ){
-            winner=1;
-
-        }else
-        if(gameBoard[0] == "O"&& gameBoard[1] == "O" && gameBoard [2] == "O" ){
-            winner=0;
-
-        }else
-        if(gameBoard[3] == "X"&& gameBoard[4] == "X" && gameBoard [5] == "X" ){
-            winner=1;
-
-        }else
-        if(gameBoard[3] == "O"&& gameBoard[4] == "O" && gameBoard [5] == "O" ){
-            winner=0;
-
-        }else
-        if(gameBoard[6] == "X"&& gameBoard[7] == "X" && gameBoard [8] == "X" ){
-            winner=1;
-
-        }else
-        if(gameBoard[6] == "O" && gameBoard[7] == "O" && gameBoard [8] == "O" ) {
-            winner=0;
-
+       int winner=99;
+        for (int a = 0; a < 8; a++) {
+            String line = null;
+            switch (a) {
+            case 0:
+                line = gameBoard[0] + gameBoard[1] + gameBoard[2];
+                break;
+            case 1:
+                line = gameBoard[3] + gameBoard[4] + gameBoard[5];
+                break;
+            case 2:
+                line = gameBoard[6] + gameBoard[7] + gameBoard[8];
+                break;
+            case 3:
+                line = gameBoard[0] + gameBoard[3] + gameBoard[6];
+                break;
+            case 4:
+                line = gameBoard[1] + gameBoard[4] + gameBoard[7];
+                break;
+            case 5:
+                line = gameBoard[2] + gameBoard[5] + gameBoard[8];
+                break;
+            case 6:
+                line = gameBoard[0] + gameBoard[4] + gameBoard[8];
+                break;
+            case 7:
+                line = gameBoard[2] + gameBoard[4] + gameBoard[6];
+                break;
+            }
+            if (line.equals("XXX")) {
+                winner=1;
+                
+            } else if (line.equals("OOO")) {
+                winner=0;
+            }
         }
-
-        //Vertical Wins
-        if(gameBoard[0] == "X"&& gameBoard[3] == "X" && gameBoard [6] == "X" ){
-            winner=1;
-
-        }else
-        if(gameBoard[0] == "O"&& gameBoard[3] == "O" && gameBoard [6] == "O" ){
-            winner=0;
-
-        }else
-
-        if(gameBoard[1] == "X"&& gameBoard[4] == "X" && gameBoard [7] == "X" ){
-            winner=1;
-
-        }else
-        if(gameBoard[1] == "O"&& gameBoard[4] == "O" && gameBoard [7] == "O" ){
-            winner=0;
-
-        }else if(gameBoard[2] == "X"&& gameBoard[5] == "X" && gameBoard [8] == "X" ){
-            winner=1;
-
-        }else
-        if(gameBoard[2] == "O"&& gameBoard[5] == "O" && gameBoard [8] == "O" ){
-            winner=0;
-
-        }
-
-        //Diagonal Wins
-        if(gameBoard[0] == "X"&& gameBoard[4] == "X" && gameBoard [8] == "X" ){
-            winner=1;
-
-        }else
-        if(gameBoard[0] == "O"&& gameBoard[4] == "O" && gameBoard [8] == "O" ){
-            winner=0;
-
-        }else
-
-        if(gameBoard[2] == "X"&& gameBoard[4] == "X" && gameBoard [6] == "X" ){
-            winner=1;
-
-        }else
-        if(gameBoard[2] == "O"&& gameBoard[4] == "O" && gameBoard [6] == "O" ){
-            winner=0;
-
-        }
-        
-        
-
         return winner;
+
+       
     }
+    
+
 
 
     private static void dispwinner(){
