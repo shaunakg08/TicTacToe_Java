@@ -4,10 +4,8 @@ import java.util.Random;
 public class TicTacToe {
 
     static String[] gameBoard= {" "," "," "," "," "," "," "," "," "};
-   
 
     public static void main() {
-
         System.out.println("Welcome to Tic Tac Toe!!");
         dispgameBoard();
         int pos=0;
@@ -42,7 +40,7 @@ public class TicTacToe {
 
             System.out.print("\u000c");
             dispgameBoard();          
-            
+
         }
     }
 
@@ -185,49 +183,61 @@ public class TicTacToe {
     }
 
     private static int checkWinner(){
-       int winner=99;
+        int winner=99;
         for (int a = 0; a < 8; a++) {
             String line = null;
             switch (a) {
-            case 0:
+                case 0:
                 line = gameBoard[0] + gameBoard[1] + gameBoard[2];
                 break;
-            case 1:
+                case 1:
                 line = gameBoard[3] + gameBoard[4] + gameBoard[5];
                 break;
-            case 2:
+                case 2:
                 line = gameBoard[6] + gameBoard[7] + gameBoard[8];
                 break;
-            case 3:
+                case 3:
                 line = gameBoard[0] + gameBoard[3] + gameBoard[6];
                 break;
-            case 4:
+                case 4:
                 line = gameBoard[1] + gameBoard[4] + gameBoard[7];
                 break;
-            case 5:
+                case 5:
                 line = gameBoard[2] + gameBoard[5] + gameBoard[8];
                 break;
-            case 6:
+                case 6:
                 line = gameBoard[0] + gameBoard[4] + gameBoard[8];
                 break;
-            case 7:
+                case 7:
                 line = gameBoard[2] + gameBoard[4] + gameBoard[6];
                 break;
             }
             if (line.equals("XXX")) {
                 winner=1;
-                
+
             } else if (line.equals("OOO")) {
                 winner=0;
             }
+            else{
+                boolean isFull = true;
+                for(String s : gameBoard) {
+                    if(s == " ") {
+                        isFull = false;
+                        break;
+
+                    }
+
+                }
+                if(isFull==true)
+                    winner=-1;
+            }
+
+            
         }
+
         return winner;
 
-       
     }
-    
-
-
 
     private static void dispwinner(){
         if(checkWinner() == 1)
@@ -245,7 +255,10 @@ public class TicTacToe {
             System.exit(0);
         }else if(checkWinner()==-1)
         {   System.out.print("\u000c");
+            dispgameBoard();
             System.out.println("ITS A DRAW!");
+
+            System.out.println("Thanks for playing");            
             System.exit(0);
         }
 
