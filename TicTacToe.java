@@ -12,7 +12,6 @@ public class TicTacToe {
 
         while(true){
             Scanner scan = new Scanner(System.in);
-
             System.out.println("Enter a number (1-9) to insert X ");
             String input = scan.nextLine();
 
@@ -21,25 +20,21 @@ public class TicTacToe {
                 pos=in;
             }
             catch (NumberFormatException e)
-            {
-                System.out.println("Invalid input");
-            }
+            {                System.out.println("Invalid input. Please enter Relevant!!");            }
 
             if(isValidMove(pos)==true){
                 placepiece(1,pos);
             }
             else
-            {  System.out.println("Invalid Move");
+            {  System.out.println("Invalid Move. Position already taken!");
                 continue; 
             }
 
             dispwinner();
             computerMove();
-
-            dispwinner();           
-
+            dispwinner();          
             System.out.print("\u000c");
-            dispgameBoard();          
+            dispgameBoard();   
 
         }
     }
@@ -57,13 +52,7 @@ public class TicTacToe {
     }
 
     private static void placepiece(int player, int pos) {
-
-        String symbol;
-        if(player==1){
-            symbol = "X";
-        }else{
-            symbol = "O";
-        }
+        String symbol=(player==1)?"X":"0";        
 
         switch(pos){
 
@@ -96,11 +85,9 @@ public class TicTacToe {
             break;
 
             default:
-            System.out.println("invalid input");
+            System.out.println("Invalid input. Please enter relevant place!");
             break;
-
         }
-
     }
 
     private static boolean isValidMove(int move){
@@ -165,7 +152,6 @@ public class TicTacToe {
             default:
             return false;
         }
-
     }
 
     private static void computerMove(){
@@ -177,9 +163,7 @@ public class TicTacToe {
             {    placepiece(0,pcpos);
                 break;
             }
-
         }
-
     }
 
     private static int checkWinner(){
@@ -212,11 +196,14 @@ public class TicTacToe {
                 line = gameBoard[2] + gameBoard[4] + gameBoard[6];
                 break;
             }
+
             if (line.equals("XXX")) {
                 winner=1;
+                break;
 
             } else if (line.equals("OOO")) {
                 winner=0;
+                break;
             }
             else{
                 boolean isFull = true;
@@ -224,19 +211,13 @@ public class TicTacToe {
                     if(s == " ") {
                         isFull = false;
                         break;
-
                     }
-
                 }
                 if(isFull==true)
                     winner=-1;
-            }
-
-            
-        }
-
-        return winner;
-
+            }            
+        }        
+        return winner;        
     }
 
     private static void dispwinner(){
@@ -257,11 +238,8 @@ public class TicTacToe {
         {   System.out.print("\u000c");
             dispgameBoard();
             System.out.println("ITS A DRAW!");
-
             System.out.println("Thanks for playing");            
             System.exit(0);
         }
-
     }
-
 }
