@@ -11,9 +11,9 @@ public class TicTacToe {
         int pos=0;
 
         while(true){
-            Scanner scan = new Scanner(System.in);
+            Scanner sc = new Scanner(System.in);
             System.out.println("Enter a number (1-9) to insert X ");
-            String input = scan.nextLine();
+            String input = sc.nextLine();
 
             try {
                 int in=Integer.valueOf(input);
@@ -84,9 +84,7 @@ public class TicTacToe {
             gameBoard[8] = symbol;
             break;
 
-            default:
-            System.out.println("Invalid input. Please enter relevant place!");
-            break;
+           
         }
     }
 
@@ -94,61 +92,59 @@ public class TicTacToe {
 
         switch (move){
             case 1:
-            if(gameBoard[0] == " "){
+            if(gameBoard[0] == " ")
                 return true;
-            } else{
+             else
                 return false;
-            }
+            
             case 2:
-            if(gameBoard[1] == " "){
+            if(gameBoard[1] == " ")
                 return true;
-            } else{
+             else
                 return false;
-            }
+            
             case 3:
-            if(gameBoard[2] == " "){
+            if(gameBoard[2] == " ")
                 return true;
-            } else{
-                return false;
-            }
+            else
+                return false;            
 
             case 4:
-            if(gameBoard[3] == " "){
+            if(gameBoard[3] == " ")
                 return true;
-            } else{
+             else
                 return false;
-            }
+            
             case 5:
-            if(gameBoard[4] == " "){
+            if(gameBoard[4] == " ")
                 return true;
-            } else{
+             else
                 return false;
-            }
+            
             case 6:
-            if(gameBoard[5] == " "){
+            if(gameBoard[5] == " ")
                 return true;
-            } else{
+             else
                 return false;
-            }
+            
             case 7:
-            if(gameBoard[6] == " "){
+            if(gameBoard[6] == " ")
                 return true;
-            } else{
+             else
                 return false;
-            }
+            
             case 8:
-            if(gameBoard[7] == " "){
+            if(gameBoard[7] == " ")
                 return true;
-            } else{
+             else
                 return false;
-            }
+            
             case 9:
-            if(gameBoard[8] == " "){
+            if(gameBoard[8] == " ")
                 return true;
-            } else{
+             else
                 return false;
-            }
-
+            
             default:
             return false;
         }
