@@ -29,26 +29,18 @@ public class TicTacToe {
             {  System.out.println("Invalid Move. Position already taken!");
                 continue; 
             }
-
+            
             dispwinner();
             computerMove();
             dispwinner();          
             System.out.print("\u000c");
-            dispgameBoard();   
-
+            dispgameBoard(); 
         }
     }
 
     private static void dispgameBoard() 
-    {    
-        System.out.println("/---|---|---\\");
-        System.out.println("| " + gameBoard[0] + " | " + gameBoard[1] + " | " + gameBoard[2] + " |");
-        System.out.println("|-----------|");
-        System.out.println("| " + gameBoard[3] + " | " + gameBoard[4] + " | " + gameBoard[5] + " |");
-        System.out.println("|-----------|");
-        System.out.println("| " + gameBoard[6] + " | " + gameBoard[7] + " | " + gameBoard[8] + " |");
-        System.out.println("\\---|---|---/");
-
+    {        
+        System.out.println("/---|---|---\\"+"\n"+"| " + gameBoard[0] + " | " + gameBoard[1] + " | " + gameBoard[2] + " |"+"\n"+"|-----------|"+"\n"+"| " + gameBoard[3] + " | " + gameBoard[4] + " | " + gameBoard[5] + " |"+"\n"+"|-----------|"+"\n"+"| " + gameBoard[6] + " | " + gameBoard[7] + " | " + gameBoard[8] + " |"+"\n"+"\\---|---|---/");
     }
 
     private static void placepiece(int player, int pos) {
@@ -84,7 +76,6 @@ public class TicTacToe {
             gameBoard[8] = symbol;
             break;
 
-           
         }
     }
 
@@ -92,59 +83,24 @@ public class TicTacToe {
 
         switch (move){
             case 1:
-            if(gameBoard[0] == " ")
-                return true;
-             else
-                return false;
-            
+            return (gameBoard[0]==" ")?true:false;
             case 2:
-            if(gameBoard[1] == " ")
-                return true;
-             else
-                return false;
-            
+            return (gameBoard[1]==" ")?true:false;
             case 3:
-            if(gameBoard[2] == " ")
-                return true;
-            else
-                return false;            
-
+            return (gameBoard[2]==" ")?true:false;        
             case 4:
-            if(gameBoard[3] == " ")
-                return true;
-             else
-                return false;
-            
+            return (gameBoard[3]==" ")?true:false;
             case 5:
-            if(gameBoard[4] == " ")
-                return true;
-             else
-                return false;
-            
+            return (gameBoard[4]==" ")?true:false;
             case 6:
-            if(gameBoard[5] == " ")
-                return true;
-             else
-                return false;
-            
+            return (gameBoard[5]==" ")?true:false;
             case 7:
-            if(gameBoard[6] == " ")
-                return true;
-             else
-                return false;
-            
+            return (gameBoard[6]==" ")?true:false;
             case 8:
-            if(gameBoard[7] == " ")
-                return true;
-             else
-                return false;
-            
+            return (gameBoard[7]==" ")?true:false;
             case 9:
-            if(gameBoard[8] == " ")
-                return true;
-             else
-                return false;
-            
+            return (gameBoard[8]==" ")?true:false;
+
             default:
             return false;
         }
